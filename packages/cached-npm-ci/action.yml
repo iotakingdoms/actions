@@ -25,3 +25,4 @@ runs:
         key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
     - name: Install dependencies
       run: npm ci ${{ inputs.args }}
+      shell: bash
