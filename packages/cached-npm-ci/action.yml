@@ -1,6 +1,9 @@
 name: "Cached npm ci"
 author: "ixuz"
 inputs:
+  args:
+    required: false
+    default: ""
   token:
     required: false
     default: ${{ github.token }}
@@ -22,5 +25,5 @@ runs:
         key: ${{ runner.os }}-cache-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
     - name: Install dependencies
       if: steps.cached-dependencies.outputs.cache-hit != 'true'
-      run: npm ci
+      run: npm ci ${{ inputs.args }}
       shell: bash
