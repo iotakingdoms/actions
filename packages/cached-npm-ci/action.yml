@@ -22,7 +22,6 @@ runs:
         cache-name: cached-npm-ci
       with:
         path: ~/.npm
-        key: ${{ runner.os }}-${{ env.cache-name }} ${{ inputs.args }}-${{ hashFiles('**/package-lock.json') }}
+        key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
     - name: Install dependencies
       run: npm ci ${{ inputs.args }}
-      shell: bash
