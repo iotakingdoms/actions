@@ -1,9 +1,6 @@
 name: "Auto audit"
 author: "ixuz"
 inputs:
-  args:
-    required: false
-    default: ""
   token:
     required: false
     default: ${{ github.token }}
@@ -14,5 +11,14 @@ runs:
       with:
         token: ${{ inputs.token }}
     - name: Audit dependencies
-      run: npm audit
+      run: npm audit --force
+      shell: bash
+    - uses: iotakingdoms/actions/packages/cached-npm-ci@main
+      with:
+        args: "--ignore-scripts"
+    - name: Build
+      run: npm run build
+      shell: bash
+    - name: Build
+      run: npm run test
       shell: bash
