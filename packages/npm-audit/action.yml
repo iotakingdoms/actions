@@ -4,12 +4,16 @@ inputs:
   token:
     required: false
     default: ${{ github.token }}
+  fetch-depth:
+    required: false
+    default: 0
 runs:
   using: "composite"
   steps:
     - uses: actions/checkout@v2
       with:
         token: ${{ inputs.token }}
+        fetch-depth: ${{ inputs.fetch-depth }}
     - name: Audit dependencies
       run: npm audit fix --force
       shell: bash
