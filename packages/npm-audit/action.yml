@@ -11,7 +11,7 @@ runs:
       with:
         token: ${{ inputs.token }}
     - name: Audit dependencies
-      run: npm audit --force
+      run: npm audit fix --force
       shell: bash
     - uses: iotakingdoms/actions/packages/cached-npm-ci@main
       with:
