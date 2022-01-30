@@ -1,0 +1,12 @@
+name: "Wait"
+author: "ixuz"
+inputs:
+  duration:
+    required: false
+    default: 30s"
+runs:
+  using: "composite"
+  steps:
+    - name: Wait
+      run: sleep ${{ inputs.duration }}
+      shell: bash
