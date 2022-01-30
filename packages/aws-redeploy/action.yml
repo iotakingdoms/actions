@@ -1,0 +1,22 @@
+name: "AWS Redeploy"
+author: "ixuz"
+inputs:
+  access_key_id:
+    required: true
+  secret_access_key:
+    required: true
+  region:
+    required: true
+  cluster:
+    required: true
+  service:
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Redeploy
+      run: aws ecs update-service --cluster ${{ inputs.cluster }} --service ${{ inputs.service }} --force-new-deployment
+      env:
+        AWS_ACCESS_KEY_ID: ${{ inputs.access_key_id }}
+        AWS_SECRET_ACCESS_KEY: ${{ inputs.secret_access_key }}
+        AWS_DEFAULT_REGION: ${{ inputs.region }}
