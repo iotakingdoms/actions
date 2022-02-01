@@ -13,9 +13,9 @@ runs:
   steps:
     - uses: iotakingdoms/actions/packages/release-npm@main
       with:
-        repository-url: https://npm.pkg.github.com
-        token: ${{ inputs.github-token }}
-    - uses: iotakingdoms/actions/packages/release-npm@main
-      with:
         repository-url: https://registry.npmjs.org
         token: ${{ inputs.npm-token }}
+    - uses: iotakingdoms/actions/packages/release-npm@main
+      with:
+        repository-url: https://npm.pkg.github.com
+        token: ${{ inputs.github-token }}
