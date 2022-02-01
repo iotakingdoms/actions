@@ -1,0 +1,27 @@
+name: Release NPM
+author: "ixuz"
+inputs:
+  repository-url:
+    required: true
+  token:
+    required: true
+  fetch-depth:
+    required: false
+    default: 0
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: "17.x"
+        registry-url: ${{ inputs.repository-url }}
+    - run: |
+        npm ci
+        npm run lint
+        npm run build
+        npm run test
+        npm publish --access public
+      shell: bash
+      env:
+        NODE_AUTH_TOKEN: ${{ inputs.token }}
