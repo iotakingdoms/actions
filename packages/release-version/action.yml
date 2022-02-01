@@ -1,9 +1,9 @@
 name: Release version
 author: "ixuz"
 inputs:
-  github_token:
+  github-token:
     required: true
-  npm_token:
+  npm-token:
     required: true
   fetch-depth:
     required: false
@@ -14,8 +14,8 @@ runs:
     - uses: iotakingdoms/actions/packages/release-npm@main
       with:
         repository-url: https://npm.pkg.github.com
-        token: ${{ inputs.github_token }}
+        token: ${{ inputs.github-token }}
     - uses: iotakingdoms/actions/packages/release-npm@main
       with:
         repository-url: https://registry.npmjs.org
-        token: ${{ inputs.npm_token }}
+        token: ${{ inputs.npm-token }}
