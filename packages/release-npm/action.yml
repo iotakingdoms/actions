@@ -11,17 +11,21 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Setup Node
+      uses: actions/setup-node@v2
       with:
         node-version: "17.x"
         registry-url: ${{ inputs.repository-url }}
-    - run: |
+        fetch-depth: ${{ inputs.fetch-depth }}
+    - name: Publish to NPM registry
+      env:
+        NODE_AUTH_TOKEN: ${{ inputs.token }}
+      run: |
         npm ci
         npm run lint
         npm run build
         npm run test
         npm publish --access public
       shell: bash
-      env:
-        NODE_AUTH_TOKEN: ${{ inputs.token }}
