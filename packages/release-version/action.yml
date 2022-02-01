@@ -16,7 +16,9 @@ runs:
       with:
         repository-url: https://npm.pkg.github.com
         token: ${{ inputs.github_token }}
+      shell: bash
     - uses: iotakingdoms/actions/packages/release-npm@main
       with:
         repository-url: https://registry.npmjs.org
         token: ${{ inputs.npm_token }}
+      shell: bash
