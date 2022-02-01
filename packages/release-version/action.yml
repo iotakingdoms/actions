@@ -3,7 +3,6 @@ author: "ixuz"
 inputs:
   github_token:
     required: true
-    default: ${{ github.token }}
   npm_token:
     required: true
   fetch-depth:
