@@ -19,3 +19,7 @@ runs:
       with:
         repository-url: https://npm.pkg.github.com
         token: ${{ inputs.github-token }}
+    - uses: iotakingdoms/actions/packages/release-docker@main
+      with:
+        repository-url: ghcr.io
+        token: ${{ inputs.github-token }}
