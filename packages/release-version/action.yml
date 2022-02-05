@@ -21,5 +21,5 @@ runs:
         token: ${{ inputs.github-token }}
     - uses: iotakingdoms/actions/packages/release-docker@main
       with:
-        repository-url: ghcr.io
+        registry-url: ghcr.io
         token: ${{ inputs.github-token }}
