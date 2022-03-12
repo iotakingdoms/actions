@@ -23,7 +23,7 @@ runs:
         password: ${{ inputs.token }}
     - name: Extract metadata (tags, labels) for Docker
       id: meta
-      uses: docker/metadata-action@2cad85de2462ab92a22ff973a347fb25c91d6082
+      uses: docker/metadata-action@47c365107cb34e788d99cf3d89acf424b505b3e8
       with:
         images: ${{ inputs.registry-url }}/${{ github.repository }}
         tags: |
