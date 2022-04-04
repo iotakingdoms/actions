@@ -30,7 +30,7 @@ runs:
           type=ref,event=tag
           type=semver,pattern={{version}}
     - name: Build and push Docker image
-      uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a
+      uses: docker/build-push-action@f7a2a67b4c1059633be6daa491784d8ac6a7ed6d
       with:
         context: .
         push: true
